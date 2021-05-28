@@ -17,6 +17,10 @@ jobs:
           version: 6.4.0
       - name: Install Rush
         run: npm install -g @microsoft/rush
+      - uses: actions/cache@v2
+        with:
+          path: common/temp/pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: rush install --bypass-policy
       - name: Clean
