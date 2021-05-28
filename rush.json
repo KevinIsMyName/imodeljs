@@ -2,6 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/rush/v5/rush.schema.json",
   "rushVersion": "5.34.2",
   "pnpmVersion": "4.12.5",
+  "pnpmOptions": {
+    "pnpmStore": "global"
+  },
   "nodeSupportedVersionRange": ">=10.17.0 <15.0.0",
   "projectFolderMinDepth": 2,
   "projectFolderMaxDepth": 3,
@@ -27,8 +30,7 @@
     ],
     "sampleEmail": "mrexample@users.noreply.github.com"
   },
-  "projects": [
-    {
+  "projects": [{
       "packageName": "@bentley/backend-application-insights-client",
       "projectFolder": "clients/backend-application-insights",
       "reviewCategory": "backend",
