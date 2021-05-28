@@ -1,7 +1,8 @@
 name: Build
-on: push
-  branches:
-    - build
+on:
+  push:
+    branches:
+      - build/cache-rush-install
 jobs:
   build:
     runs-on: ubuntu-latest
