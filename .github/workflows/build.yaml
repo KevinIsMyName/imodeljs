@@ -7,17 +7,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout build/cache-rush-install
+        uses: actions/checkout@v2
+        with:
+          ref: build/cache-rush-install
+      - name: Setup Node 12
+        uses: actions/setup-node@v1
         with:
           node-version: '12'
-      # - name: Setup PNPM
-      - uses: pnpm/action-setup@v2.0.1
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.0.1
         with:
           version: 6.4.0
       - name: Install Rush
         run: npm install -g @microsoft/rush
-      - uses: actions/cache@v2
+      - name: "Cache PNPM store"
+        uses: actions/cache@v2
         with:
           path: common/temp/pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/package-lock.json') }}
