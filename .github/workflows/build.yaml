@@ -23,5 +23,5 @@ jobs:
         run: rush clean
       - name: Rebuild source
         run: rush rebuild
-      - name: Run tests
-        run: rush cover
+      # - name: Run tests
+      #   run: rush cover
