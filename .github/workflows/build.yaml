@@ -18,7 +18,7 @@ jobs:
       - name: Install Rush
         run: npm install -g @microsoft/rush
       - name: Install dependencies
-        run: rush install
+        run: rush install --bypass-policy
       - name: Clean
         run: rush clean
       - name: Rebuild source
