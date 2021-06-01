@@ -3,7 +3,7 @@
   "rushVersion": "5.34.2",
   "pnpmVersion": "4.12.5",
   "pnpmOptions": {
-    "pnpmStore": "local"
+    "pnpmStore": "global"
   },
   "nodeSupportedVersionRange": ">=10.17.0 <15.0.0",
   "projectFolderMinDepth": 2,
