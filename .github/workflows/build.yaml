@@ -21,11 +21,11 @@ jobs:
           version: 6.4.0
       - name: Install Rush
         run: npm install -g @microsoft/rush
-      # - name: Cache PNPM store
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: common/temp/pnpm-store
-      #     key: ${{ runner.os }}-pnpm-${{ hashFiles('package.json') }}
+      - name: Cache PNPM store
+        uses: actions/cache@v2
+        with:
+          path: common/temp/pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('package.json') }}
       - name: Install dependencies
         run: rush install --bypass-policy
       - name: Clean
