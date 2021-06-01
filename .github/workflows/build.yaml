@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: common/temp/pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('package.json') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/package.json') }}
       - name: Install dependencies
         run: rush install --bypass-policy
       - name: Clean
