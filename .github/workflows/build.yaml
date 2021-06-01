@@ -4,7 +4,7 @@ on:
     branches:
       - build/cache-rush-install
 jobs:
-  build:
+  build-cache:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout build/cache-rush-install
@@ -26,6 +26,31 @@ jobs:
         with:
           path: common/temp/pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('package.json') }}
+      - name: Install dependencies
+        run: rush install --bypass-policy
+      - name: Clean
+        run: rush clean
+      - name: Rebuild source
+        run: rush rebuild
+      # - name: Run tests
+      #   run: rush cover
+  build-no-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout build/cache-rush-install
+        uses: actions/checkout@v2
+        with:
+          ref: build/cache-rush-install
+      - name: Setup Node 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.4.0
+      - name: Install Rush
+        run: npm install -g @microsoft/rush
       - name: Install dependencies
         run: rush install --bypass-policy
       - name: Clean
