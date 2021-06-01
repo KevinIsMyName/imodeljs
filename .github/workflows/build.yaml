@@ -21,8 +21,8 @@ jobs:
           version: 6.4.0
       - name: Install Rush
         run: npm install -g @microsoft/rush
-      - name: "DEBUG: ls -alF"
-        run: ls -alF
+      - name: "DEBUG: pwd"
+        run: pwd
       - name: Cache PNPM store
         uses: actions/cache@v2
         with:
