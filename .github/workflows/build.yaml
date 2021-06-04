@@ -26,8 +26,6 @@ jobs:
         with:
           path: common/temp/pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}
-      - name: 'DEBUG: Move cache to pnpm-store location?'
-        run: cp -r /home/runner/work/imodeljs/imodeljs common/temp/pnpm-store
       - name: Install dependencies
         run: rush install --bypass-policy
       - name: Clean
