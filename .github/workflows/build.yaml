@@ -30,10 +30,11 @@ jobs:
         run: ls -alF common/temp/pnpm-store
       - name: Install dependencies
         run: rush install --bypass-policy --debug-package-manager
-      - name: Clean
-        run: rush clean
-      - name: Rebuild source
-        run: rush rebuild
+        if: always()
+      # - name: Clean
+      #   run: rush clean
+      # - name: Rebuild source
+      #   run: rush rebuild
       # - name: Run tests
       #   run: rush cover
   build-no-cache:
@@ -55,9 +56,9 @@ jobs:
         run: npm install -g @microsoft/rush
       - name: Install dependencies
         run: rush install --bypass-policy --debug-package-manager
-      - name: Clean
-        run: rush clean
-      - name: Rebuild source
-        run: rush rebuild
+      # - name: Clean
+      #   run: rush clean
+      # - name: Rebuild source
+      #   run: rush rebuild
       # - name: Run tests
       #   run: rush cover
