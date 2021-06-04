@@ -20,20 +20,14 @@ jobs:
         with:
           version: 6.4.0
       - name: Install Rush
-        run: npm install -g @microsoft/rush
+        run: npm install -g @microsoft/rush@5.34.2
       - name: Cache PNPM store
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: common/temp/pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('common/config/rush/pnpm-lock.yaml') }}
       - name: Install dependencies
         run: rush install --bypass-policy --debug-package-manager
-      # - name: Clean
-      #   run: rush clean
-      # - name: Rebuild source
-      #   run: rush rebuild
-      # - name: Run tests
-      #   run: rush cover
   build-no-cache:
     runs-on: ubuntu-latest
     steps:
@@ -50,12 +44,6 @@ jobs:
         with:
           version: 6.4.0
       - name: Install Rush
-        run: npm install -g @microsoft/rush
+        run: npm install -g @microsoft/rush@5.34.2
       - name: Install dependencies
         run: rush install --bypass-policy --debug-package-manager
-      # - name: Clean
-      #   run: rush clean
-      # - name: Rebuild source
-      #   run: rush rebuild
-      # - name: Run tests
-      #   run: rush cover
